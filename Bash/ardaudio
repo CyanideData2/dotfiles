@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    echo "An argument is required"
+    exit 1
+fi
+while [ "$1" != "" ]; do
+    case $1 in
+        -o | --name )
+            shift
+            name=$1
+            shift
+            url=$1
+            /bin/yt-dlp -x -f bestaudio[ext=m4a] "$url" -o "${name}.m4a"
+            ;;
+        *)
+            url=$1
+            /bin/yt-dlp -x -f bestaudio[ext=m4a] "$url"
+            name=`/bin/find "*.m4a" -quit`
+            name="${name%.*}"
+            ;;
+    esac
+    shift # remove the current value for `$1` and use the next
+done
+echo "converting ${name}.m4a => ${name}.mp3"
+/bin/ffmpeg -v 5 -y -i ${name}.m4a -acodec libmp3lame -ac 2 -ab 192k ${name}.mp3
+rm "${name}.m4a"

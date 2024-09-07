@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# vim-hypr-nav - Use the same bindings to move focus between hyprland windows 
+# and vim splits. Requires the accompanying vim plugin and jq.
+
+dir="$1"
+
+case "$dir" in
+    u) ;;
+    r) ;;
+    d) ;;
+    l) ;;
+    *)
+        echo "This command requires a direction (u, d, l, r), as an argument" 
+        exit 1
+esac
+
+

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    project="./"
+else project=$1
+fi
+mkdir -p $project
+cd $project
+if [ $(/bin/pgrep -f "main.py") ]; then # Change "script_file_name.sh" to your actual script file name.
+    echo "Shorcut manager already activated"
+else
+    /usr/bin/python3 ~/inkscape-shortcut-manager/main.py&
+fi
+if [ $(/bin/pgrep -f "inkscape-figures") ]; then # Change "script_file_name.sh" to your actual script file name.
+    echo "Already watching for figures"
+else
+    /home/daniel/.local/bin/inkscape-figures watch
+fi
+cp /home/daniel/V/Workspace/Templates/Latex/.gitignore ./
+touch main.tex titlepage.tex
+/usr/bin/nvim main.tex

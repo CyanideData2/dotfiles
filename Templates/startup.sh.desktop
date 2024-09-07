@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/daniel/V/Workspace/Bash/startup.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=CyanideStartup
+Name=CyanideStartup
+Comment[en_US]=Sad to see the captions gone but it's superior
+Comment=Sad to see the captions gone but it's superior

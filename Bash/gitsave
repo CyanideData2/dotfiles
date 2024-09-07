@@ -1,0 +1,8 @@
+#! /usr/bin/bash
+
+x=${PWD##*/}
+echo $x
+/home/daniel/V/Workspace/Bash/filter.sh
+git add .
+git commit -m "$x"
+git push origin main
