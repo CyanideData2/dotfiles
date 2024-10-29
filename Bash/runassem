@@ -1,0 +1,28 @@
+#!/bin/bash
+
+case $# in 
+		0) 
+				asmfile=$(find ./ -maxdepth 1 -name "*.asm") 
+				cfile=$(find ./ -maxdepth 1 -name "*.c")
+				;;
+
+		1) 
+				asmfile="${1}.asm"
+				cfile="${1}.c"
+				;;
+		2)
+				cfile=$1
+				asmfile=$2
+				;;
+		*)
+				echo "too many arguments"
+				exit
+esac
+asmTrimmed="${asmfile%.asm}"
+main="${cfile%.c}"
+
+# echo $main $asmTrimmed
+
+yasm -f elf64 -g dwarf2 $asmfile;
+gcc -no-pie -mincoming-stack-boundary=3 -g -o $main "${asmTrimmed}.o" $cfile
+./$main

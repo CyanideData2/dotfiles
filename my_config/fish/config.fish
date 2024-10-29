@@ -17,3 +17,5 @@ alias vimv="cd ~/V;nvim \$(find . -print | fzf)"
 alias btreboot="sudo rmmod btusb && sudo rmmod btintel && sudo modprobe btintel && sudo modprobe btusb"
 
 zoxide init fish --cmd cd | source
+
+fish_add_path /home/daniel/.spicetify

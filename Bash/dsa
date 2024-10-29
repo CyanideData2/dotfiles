@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+    echo "Provide a valid APlus url"
+    exit
+fi
+url=$1
+wget $url
+echo "Downloading zip from source"
+zipfile=$(find ./ -maxdepth 1 -name "*.zip")
+echo "Unzipping ${zipfile}"
+unzip $zipfile
+echo "Extraction successful, removing ${zipfile}"
+rm -r $zipfile
+
+rawname=$(find ./ -maxdepth 1 -name "A1140*")
+cleanname=${rawname##*'-'}
+echo "renaming ${rawname} to ${cleanname}"
+mv $rawname "./${cleanname}"
+cp "/home/daniel/V/Workspace/Templates/.scalafmt.conf" "./${cleanname}/.scalafmt.conf"
+cd "./${cleanname}"
