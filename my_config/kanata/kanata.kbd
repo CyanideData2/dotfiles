@@ -1,10 +1,11 @@
+(include system_symbols.kbd)
 (defcfg
   process-unmapped-keys yes
 )
 
 (defsrc
   a k l ; i
-  j c d
+  j c d \ '
   lalt rctrl
   lctrl /
 )
@@ -18,25 +19,28 @@
 (defalias
   ;; escctrl (tap-hold-press $dt 300 esc lctrl)
   escctrl (tap-hold-press $dt 300 esc lctrl)
-  accents (tap-hold 100 $ht (one-shot-press 300 (layer-while-held accents)) lalt )
-  reverse (tap-hold 100 $ht (one-shot-press 300 (layer-while-held reverse)) lctrl )
+  returnctrl (tap-hold-press $dt 300 return rctrl)
+  accents (tap-hold 100 $ht (one-shot-press 300 (layer-while-held accents)) lmet )
+  reverse (tap-hold 100 100 (one-shot-press 300 (layer-while-held reverse)) lsft )
   ;; umlaut (tap-hold-release $dt $ht  (layer-while-held umlaut))
 
-  raccents (tap-hold 100 $ht (one-shot-press 300 (layer-while-held accents)) rctrl )
-  rreverse (tap-hold 100 $ht / (one-shot-press 300 (layer-while-held reverse)) )
+  raccents (tap-hold 100 $ht (one-shot-press 300 (layer-while-held accents)) ralt )
+  rreverse (tap-hold 100 100 (one-shot-press 300 (layer-while-held reverse)) rsft )
   ;; rumlaut (tap-hold-release $dt $ht e (layer-while-held umlaut))
 )
 ;;
 (deflayermap (colemak)
-home (layer-switch mouse)
-;; pgup (layer-switch qwerty-en)
+home (tap-dance 500 (lrpv (layer-switch qwerty-en) (layer-switch mouse)))
 PageDown lrld
 caps @escctrl
+return @returnctrl
+
 lalt @accents
-lctrl @reverse
+lsft @reverse
+
 ralt @raccents
 esc caps
-/ @rreverse
+rsft @rreverse
 
 
 q q
@@ -72,39 +76,22 @@ m h
 ;;   n c
 ;;   lalt rctrl9
 
-(defalias
-á RA-x
-é RA-g
-í RA-b
-ó RA-.
-ú RA-j
-ñ RA-n
-ç RA-c
-à RA-z
-è RA-f
-ò RA-,
-ä RA-a
-ï RA-i
-ö RA-o
-ü RA-u
-ß RA-s
-)
-
 (deflayer accents
 @á @é @í @ó @ú  
-@ñ @ç @ß
+@ñ @ç @ß @~ `
 _ _
 (one-shot-press 300 (layer-while-held umlaut)) (one-shot-press 300 (layer-while-held umlaut))
 )
+
 (deflayer reverse
  @à @è _ @ò _
- _ _ _
+ _ _ _ _ _
 (one-shot-press 300 (layer-while-held umlaut)) (one-shot-press 300 (layer-while-held umlaut))
 _ _
 )
 (deflayer umlaut
  @ä _ @ï @ö @ü
- _ _ _
+ _ _ _ _ _
  _ _
  _ _
 )
@@ -119,4 +106,7 @@ q mlft
 e mrgt
 k (mwheel-up 300 120)
 j (mwheel-down 300 120)
+)
+(deflayermap (qwerty-en)
+home (layer-switch colemak)
 )

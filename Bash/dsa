@@ -13,9 +13,9 @@ unzip $zipfile
 echo "Extraction successful, removing ${zipfile}"
 rm -r $zipfile
 
-rawname=$(find ./ -maxdepth 1 -name "A1140*")
-cleanname=${rawname##*'-'}
-echo "renaming ${rawname} to ${cleanname}"
-mv $rawname "./${cleanname}"
-cp "/home/daniel/V/Workspace/Templates/.scalafmt.conf" "./${cleanname}/.scalafmt.conf"
-cd "./${cleanname}"
+# rawname=$(find ./ -maxdepth 1 -name "A1140*")
+# cleanname=${rawname##*'-'}
+# echo "renaming ${rawname} to ${cleanname}"
+# mv $rawname "./${cleanname}"
+# cp "/home/daniel/V/Workspace/Templates/.scalafmt.conf" "./${cleanname}/.scalafmt.conf"
+# cd "./${cleanname}"

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+	location=~/Pictures/Canon
+else
+	location=$1
+fi
+
+echo "Moving from $location, all CR3 files that share name with any local JPG"
+while read -r foto; do
+	name=${foto%.*}
+	if [ -f "$location/$name.CR3" ]; then
+		mv $location/$name.CR3 ./
+	fi
+done < <(find ./ -iname '*.JPG')
