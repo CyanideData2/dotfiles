@@ -24,28 +24,35 @@
              @sym @metaccent @oscontrol    @metaccent spc @sym
 )
 (deflayer accents
-  _         _  _  _  _ _   _ _  @ú _  `  _  _
-  _         @á _  _  _ _   _ @ñ @é @í @ó _
-  _         @à _  @ç _ _   _ _  _ _ _  _
+  _         _  _   _   _ _   _ _ @ú _  `  _  _
+  _         @á @dà @dä _ _   _ _ @é @í @ó _
+  _         _  _   @ç  _ _   _ _ _  @· _  _
                       _ _ _   _ _ _
 )
-(deflayer numsym
-  @~    @!  @@  @#  @$  @%      @^ 7 8 9 @& _  _
-  @|    <  @lp  @[   @{  =      + 4 5 6 @-  @*
-  (layer-while-held reversenum) @>   _  _   _   _       _  1 2 3 \ (layer-while-held reversenum)
-                      _ _ _   _ 0 0
+(deflayer open_accents
+  _         _  _  _  _ _   _ _  _  _ _  _  _
+  _         @à _  _  _ _   _ _  @è _ @ò _
+  _         _  _  _  _ _   _ _  _  _ _  _
+                      _ _ _   _ _ _
 )
-(deflayer reversenum
-  _   _ _ _ _ _         _ _ _ _ _   _  _
-  _   @> @rp @] @} -    _ _ _ _ S--   _
-  _   _ _ _ _ _         _ _ _ _ _   _
-                _ _ _   _ _ _
+(deflayer umlaut
+  _         _  _  _  _ _   _ _  _  _ _  _  _
+  _         @à _  _  _ _   _ _  @è _ @ò _
+  _         _  _  _  _ _   _ _  _  _ _  _
+                      _ _ _   _ _ _
+)
+
+(deflayer numsym
+  _    @! @@ @# @$  @%     @^ @& @* @lp @rp _    _
+  _    <  @{ =  @}  @>     _  @[ @- @] _ _
+  _    _  @| @_ @~  _      _  _  + _  \ _
+                      _ _ _   _ _ 0
 )
 (deflayer oscontrol
-  _   _ 🔅 🔆 _ _   ◀  ▲  🔉 🔊  🔉 _  _
-  _   _ _  _  _ _   _  _ _    _ _
-  _   _ _  _  _ _   _  ▼  ▶  _ _ _   _
-          _ _ _   _ _  _
+  _   _ _ ▲ _ _    🔆 7 8 9 🔊 _ _
+  _   _ ◀ ▼ ▶ _    🔅 4 5 6 🔉 _ 
+  _   _ _ _ _ _    _  1 2 3 🔇 _
+          _ _ _   _ _          0
 )
 
 (deflayermap (shift-exceptions)
@@ -65,7 +72,11 @@
   escctrl (tap-hold-press $dt 300 esc lctrl)
   retctrl(tap-hold-press $dt 300 return rctrl)
   sftrev (tap-hold-press $dt 300 ` rsft)
+
   metaccent (tap-hold 100 $ht (one-shot-press 300 (layer-while-held accents)) lmet )
+  dà (one-shot-press 300 (layer-while-held open_accents))
+  dä (one-shot-press 300 (layer-while-held umlaut))
+
   tabctrl (tap-hold 100 $ht tab lctrl)
   bspcalt (tap-hold 100 $ht bspc rctrl)
   sym (layer-while-held numsym)
