@@ -1,19 +1,22 @@
 (defalias
+ç RA-c
+ñ RA-n
+ß RA-s
+
 á RA-x
 é RA-g
 í RA-b
 ó RA-.
 ú RA-j
-ñ RA-n
-ç RA-c
+
 à RA-z
 è RA-f
 ò RA-,
+
 ä RA-a
 ï RA-i
 ö RA-o
 ü RA-u
-ß RA-s
 
 · RA-S-;
 - -

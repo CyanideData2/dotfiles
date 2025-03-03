@@ -8,7 +8,7 @@ format = '''
 $python$rust$lua$c$nodejs$deno$java$scala$directory$character 
 '''
 right_format = '''
-$all$git_branch$git_commit$git_state$git_metrics$git_status
+$all$git_branch$git_commit$git_state$git_metrics
 '''
 
 # [directory]

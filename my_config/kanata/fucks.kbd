@@ -12,20 +12,20 @@
 ;;                   lmet lalt   spc   ralt <
 ;; )
 (defsrc
-  1       2     3   4   5   6     7   8   9   0   -   =       home
-  tab     q     w   e   r   t     u   i   o   p   [   ]
-  caps    a     s   d   f   g     j   k   l   ;   '   ret
-                x   c   v         n   m   ,
+  1       2   3   4   5   6     7   8   9   0   -   =       home
+  tab     q   w   e   r   t     u   i   o   p   [   ]
+  caps    a   s   d   f   g     j   k   l   ;   '   ret
+                  x   c   v     n   m   ,
 )
 (deflayer colemak
   @tabctrl   q   w   f   p   b     j   l   u   y   '   bspc    @layouts 
   @escctrl   a   r   s   t   g     m   n   e   i   o   @retctrl
   lsft      z   x   c   d   v     k   h   @,  @.  /   rsft
-             @sym @metaccent @oscontrol    @metaccent spc @sym
+        @sym @metaccent @oscontrol    @metaccent spc @sym
 )
 (deflayer accents
   _         _  _   _   _ _   _ _ @ú _  `  _  _
-  _         @á @dà @dä _ _   _ _ @é @í @ó _
+  _         @á @dà @dä _ _   _ @ñ @é @í @ó _
   _         _  _   @ç  _ _   _ _ _  @· _  _
                       _ _ _   _ _ _
 )
@@ -46,13 +46,13 @@
   _    @! @@ @# @$  @%     @^ @& @* @lp @rp _    _
   _    <  @{ =  @}  @>     _  @[ @- @] _ _
   _    _  @| @_ @~  _      _  _  + _  \ _
-                      _ _ _   _ _ 0
+                      _ _ _   _ _ _
 )
 (deflayer oscontrol
-  _   _ _ ▲ _ _    🔆 7 8 9 🔊 _ _
-  _   _ ◀ ▼ ▶ _    🔅 4 5 6 🔉 _ 
-  _   _ _ _ _ _    _  1 2 3 🔇 _
-          _ _ _   _ _          0
+  _   _ _ ▲ _ _    🔅 7 8 9 🔆 _ _
+  _   _ ◀ ▼ ▶ _    🔉 4 5 6 🔊 🔇 
+  _   _ _ _ _ _    _  1 2 3 _ _
+          _ _ _   _ _ 0
 )
 
 (deflayermap (shift-exceptions)
