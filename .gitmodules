@@ -1,3 +1,6 @@
 [submodule "my_config/nvim"]
 	path = my_config/nvim
 	url = git@github.com:CyanideData2/nvim-config.git
+[submodule "my_config/nix"]
+	path = my_config/nix
+	url = git@github.com:CyanideData2/nix-config.git
