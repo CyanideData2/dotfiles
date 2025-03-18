@@ -6,4 +6,4 @@
 	url = git@github.com:CyanideData2/nix-config.git
 [submodule "my_config"]
 	path = my_config
-	url = git@github.com:CyanideData2/dotfiles.git
+	url = git@github.com:CyanideData2/my_config.git
